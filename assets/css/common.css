@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'JalnanGothic';
+  src: url('~/static/fonts/JalnanGothicTTF.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+*, html {
+  font-family: 'Pretendard', 'JalnanGothic', 'sans-serif'; 
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+em{
+  @apply not-italic;
+}
