@@ -27,8 +27,8 @@ export default {
       window.location.href = "https://youtu.be/kYNivijylq8"
     },
     openPDF() {
-      const pdfPath = '/pdf/mission-pdf.pdf'
-      window.open(pdfPath, "_blank")
+      const pdfPath = require('~/assets/pdf/mission-pdf.pdf')
+      window.open(pdfPath.default || pdfPath, "_blank")
     }
   }
 }
