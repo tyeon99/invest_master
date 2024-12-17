@@ -82,7 +82,7 @@ export default {
   @apply fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.6)] flex justify-start items-center z-[999] pr-[55px];
 }
 .offcanvas-content{
-  @apply w-full h-full bg-[#fff] p-[28px_10px];
+  @apply w-[320px] h-full bg-[#fff] p-[28px_10px];
 }
 .offcanvas-close{
   @apply pl-[18px] mb-[40px];

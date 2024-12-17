@@ -1,16 +1,20 @@
 <template>
   <div class="missionContent">
-    <div class="fullBtnGroup">
-      <button @click="openPDF">
-        <img width="24" src="~/assets/img/mission/pdf-icon.png" alt="PDF 아이콘">
-        <span>PDF 보기(전체)</span>
-      </button>
-      <button @click="goToYoutube">
-        <img width="24" src="~/assets/img/mission/youtube-icon.png" alt="youtube 아이콘">
-        <span>동영상 보기(전체)</span>
-      </button>
+    <div>
+      <div class="fullBtnGroup">
+        <button @click="openPDF">
+          <img width="24" src="~/assets/img/mission/pdf-icon.png" alt="PDF 아이콘">
+          <span>PDF 보기(전체)</span>
+        </button>
+        <button @click="goToYoutube">
+          <img width="24" src="~/assets/img/mission/youtube-icon.png" alt="youtube 아이콘">
+          <span>동영상 보기(전체)</span>
+        </button>
+      </div>
+      <div class="missionContent__pdf">
+        <img src="~/assets/img/mission/pdf-preview.png" alt="PDF 미리보기">
+      </div>
     </div>
-    <!-- 미션 설명 영역 -->
     <div class="nextButton">
       <button @click="goLink('/mission/quiz')">NEXT</button>
     </div>
@@ -24,7 +28,7 @@ export default {
       this.$router.push(path)
     },
     goToYoutube() {
-      window.location.href = "https://youtu.be/kYNivijylq8"
+      window.open("https://youtu.be/kYNivijylq8", "_blank")
     },
     openPDF() {
       const pdfPath = require('~/assets/pdf/mission-pdf.pdf')
@@ -36,7 +40,7 @@ export default {
 
 <style scoped>
 .missionContent{
-  @apply w-full p-[20px_0px_50px];
+  @apply w-full h-[calc(100dvh-47px)] p-[20px_0px_50px] flex flex-col justify-between items-center;
 }
 .fullBtnGroup{
   @apply w-full px-[18px] flex justify-center items-center gap-[12px] mb-[23px];

@@ -27,7 +27,14 @@ export default {
     }
   },
   mounted() {
-    this.openStartOffcanvas()
+    // 로컬 스토리지에서 방문 여부 확인
+    const hasVisited = localStorage.getItem("hasVisited");
+
+    if (!hasVisited) {
+      // 처음 방문한 경우만 열기
+      this.openStartOffcanvas();
+      localStorage.setItem("hasVisited", "true"); // 방문 기록 저장
+    }
   },
   methods: {
     triggerAIRecom() {

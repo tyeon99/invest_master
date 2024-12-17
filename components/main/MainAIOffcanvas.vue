@@ -118,7 +118,7 @@ export default {
   @apply font-[JalnanGothic] font-normal text-[16px] leading-[20px] text-center text-[#2c2c2c] mb-[28px];
 }
 .offcanvas-body{
-  @apply w-full rounded-[12px] bg-[#f2f9fa] p-[14px_16px] mb-[40px];
+  @apply w-full rounded-[12px] bg-[#f2f9fa] p-[14px_16px] mb-[40px] flex justify-center items-center;
 }
 .offcanvas-body .radio-group{
   @apply flex flex-col gap-[12px] justify-start items-start;
@@ -139,13 +139,13 @@ export default {
   @apply font-semibold text-[16px] leading-[19px] text-[#2c2c2c];
 }
 .offcanvas-body .analyzing{
-  @apply relative p-[24px_10px_36px] flex flex-col justify-center items-center gap-[30px];
+  @apply relative w-[248px] p-[24px_10px_36px] flex flex-col justify-center items-center gap-[30px];
 }
 .offcanvas-body .analyzing p{
   @apply font-[JalnanGothic] font-normal text-[14px] leading-[16px] text-[#514170];
 }
 .offcanvas-body .analyzing .loadingBar-bg{
-  @apply absolute block w-[341px] h-[119px] bg-[url(~/assets/img/main/aiOffcanvas-shadow.png)] bg-center bg-[length:341px_119px] left-[-35px] top-[30px] z-[9];
+  @apply absolute block w-[341px] h-[119px] bg-[url(~/assets/img/main/aiOffcanvas-shadow.png)] bg-center bg-[length:341px_119px] left-[-45px] top-[30px] z-[9];
 }
 .offcanvas-body .analyzing .loadingBar{
   @apply relative z-[99] w-[248px] h-[24px] rounded-[32px] bg-[#fff] p-[4px_6px];
