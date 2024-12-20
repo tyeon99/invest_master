@@ -21,6 +21,7 @@
       >
         <component
           :is="tab.component"
+          :activeTab="activeTab"
           @change-tab="changeTab"
         />
       </div>

@@ -65,7 +65,7 @@ export default {
       classDatas: [
         { number: 'Class 01', name: '가격패턴 <br>투자기법' },
         { number: 'Class 02', name: '대가들의 <br>투자기법' },
-        { number: 'Class 03', name: '대가들의 <br>투자기법' },
+        { number: 'Class 03', name: '가치평가 <br>매매기법' },
         { number: 'Class 04', name: 'AI 라씨 <br>매매신호' },
       ],
       missionNumbers: ["미션 01", "미션 02", "파이널 미션", "스페셜 미션"],

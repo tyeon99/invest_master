@@ -31,10 +31,10 @@
       </div>
       <div class="finishButton">
         <button
-          :class="{ 'active': selectedItem }"
+          :class="{ 'active': isChangeFinal }"
           @click="selectedItem ? openCompleteOffcanvas() : null"
         >
-          <em>{{ selectedItem ? '2/2' : '1/2' }}</em>
+          <em>{{ isChangeFinal ? '2/2' : '1/2' }}</em>
           <span>FINAL</span>
           <img width="8" src="~/assets/img/mission/finish-btn.png" alt="종료 버튼">
         </button>
@@ -55,28 +55,33 @@
       <div v-if="selectedItem === '티플랙스'" class="chart chart01">
         <div ref="chartLeft" class="left">
           <img
+            :src="isChangeFinal ? require('~/assets/img/mission/item01-chart02.png') : require('~/assets/img/mission/item01-chart01.png')"
             width="795"
-            src="~/assets/img/mission/item01-chart.png"
-            alt="티플랙스 차트"
             @load="scrollToRight"
           >
         </div>
         <div class="right">
-          <img width="60" src="~/assets/img/mission/item01-chart-right.png" alt="티플랙스 축">
+          <img
+            :src="isChangeFinal ? require('~/assets/img/mission/item01-chart02-right.png') : require('~/assets/img/mission/item01-chart01-right.png')"
+            width="60"
+          >
         </div>
       </div>
+
       <!-- 대주전자재료 -->
       <div v-if="selectedItem === '대주전자재료'" class="chart chart02">
         <div ref="chartLeft" class="left">
           <img
+            :src="isChangeFinal ? require('~/assets/img/mission/item02-chart02.png') : require('~/assets/img/mission/item02-chart01.png')"
             width="766.455"
-            src="~/assets/img/mission/item02-chart.png"
-            alt="대주전자재료 차트"
             @load="scrollToRight"
           >
         </div>
         <div class="right">
-          <img width="60" src="~/assets/img/mission/item02-chart-right.png" alt="대주전자재료 축">
+          <img
+            :src="isChangeFinal ? require('~/assets/img/mission/item02-chart02-right.png') : require('~/assets/img/mission/item02-chart01-right.png')"
+            width="60"
+          >
         </div>
       </div>
     </div>
@@ -102,10 +107,16 @@
 
 <script>
 export default {
+  props: {
+    activeTab: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       items: ['티플랙스', '대주전자재료'],
-      selectedItem: null,
+      selectedItem: '티플랙스',
       prices: {
         '티플랙스': '4,950원',
         '대주전자재료': '81,968원'
@@ -114,12 +125,20 @@ export default {
       isOffcanvasAni: false,
       isCompleteOffcanvasOpen: false,
       isCorrectOffcanvasOpen: false,
-      isWrongOffcanvasOpen: false
+      isWrongOffcanvasOpen: false,
+      isChangeFinal: false
     }
   },
   computed: {
     currentPrice() {
       return this.prices[this.selectedItem]
+    }
+  },
+  watch: {
+    activeTab(newValue) {
+      if (newValue === 'tab3') {
+        this.scrollToRight()
+      }
     }
   },
   methods: {
@@ -133,6 +152,7 @@ export default {
     openCompleteOffcanvas() {
       this.isOffcanvasAni = true
       this.isCompleteOffcanvasOpen = true
+      this.isChangeFinal = true
     },
     closeCompleteOffcanvas() {
       this.isOffcanvasAni = false

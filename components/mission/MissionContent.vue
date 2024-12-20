@@ -1,6 +1,6 @@
 <template>
   <div class="missionContent">
-    <div>
+    <div class="w-full">
       <div class="fullBtnGroup">
         <button @click="openPDF">
           <img width="24" src="~/assets/img/mission/pdf-icon.png" alt="PDF 아이콘">
@@ -12,7 +12,10 @@
         </button>
       </div>
       <div class="missionContent__pdf">
-        <img src="~/assets/img/mission/pdf-preview.png" alt="PDF 미리보기">
+        <!-- <img src="~/assets/img/mission/pdf-preview.png" alt="PDF 미리보기"> -->
+        <!-- <embed :src="pdfSrc" width="100%" height="500px" type="application/pdf" /> -->
+        <iframe :src="pdfSrc" width="100%" height="500px"></iframe>
+        <!-- <object :data="pdfSrc" type="application/pdf" width="100%" height="500px"></object> -->
       </div>
     </div>
     <div class="nextButton">
@@ -23,6 +26,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      pdfSrc: require('~/assets/pdf/mission-pdf.pdf')
+      // pdfSrc: '/pdf/mission-pdf.pdf'
+    }
+  },
   methods: {
     goLink(path) {
       this.$router.push(path)
@@ -31,8 +40,7 @@ export default {
       window.open("https://youtu.be/kYNivijylq8", "_blank")
     },
     openPDF() {
-      const pdfPath = require('~/assets/pdf/mission-pdf.pdf')
-      window.open(pdfPath.default || pdfPath, "_blank")
+      window.open(this.pdfSrc.default || this.pdfSrc, "_blank")
     }
   }
 }
@@ -40,7 +48,7 @@ export default {
 
 <style scoped>
 .missionContent{
-  @apply w-full h-[calc(100dvh-47px)] p-[20px_0px_50px] flex flex-col justify-between items-center;
+  @apply w-full h-[calc(100dvh-47px)] p-[20px_0px_50px] flex flex-col justify-between items-center bg-[#fff];
 }
 .fullBtnGroup{
   @apply w-full px-[18px] flex justify-center items-center gap-[12px] mb-[23px];
@@ -51,8 +59,11 @@ export default {
 .fullBtnGroup button span{
   @apply font-extrabold text-[14px] leading-[14px] text-[#2c2c2c];
 }
+missionContent__pdf{
+  @apply w-full h-[500px] overflow-y-auto;
+}
 .nextButton{
-  @apply w-full flex justify-center items-center;
+  @apply w-full flex justify-center items-center mt-[20px];
 }
 .nextButton button{
   @apply w-[320px] h-[48px] rounded-[28px] border-[2px] border-[#2c2c2c] font-[JalnanGothic] font-normal text-[14px] leading-[14px] text-[#2c2c2c] pt-[3px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] bg-[#fff];

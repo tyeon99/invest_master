@@ -11,7 +11,7 @@
 *, html {
   font-family: 'Pretendard', 'JalnanGothic', 'sans-serif'; 
   box-sizing: border-box;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
 }
 em{
   @apply not-italic;

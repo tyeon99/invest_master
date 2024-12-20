@@ -32,7 +32,7 @@
           </div>
           <div class="right">
             <!-- <div class="bg"><img width="120" src="~/assets/img/mission/insignia-bg.png" alt="빛 효과"></div> -->
-            <img width="64" src="~/assets/img/mission/insignia-img.png" alt="휘장">
+            <img width="145" src="~/assets/img/mission/insignia-img.png" alt="휘장">
           </div>
         </div>
         <div class="correctContent">
@@ -82,11 +82,11 @@
                 </div>
                 <div class="list">
                   <span>평가자산</span>
-                  <div class="type">11,829,882 원</div>
+                  <div class="type">111,829,882 원</div>
                 </div>
                 <div class="list">
                   <span>수의금/수익률</span>
-                  <div class="type"><em>118,299,882 원  &nbsp;&nbsp;&nbsp;+18.30%</em></div>
+                  <div class="type"><em>111,829,882 원  &nbsp;&nbsp;&nbsp;+11.83%</em></div>
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@ export default {
   @apply font-semibold text-[14px] leading-[15px] text-[#00AAD0];
 }
 .offcanvas-body .insignia-box{
-  @apply w-full rounded-[12px] p-[33px_38px_33px_16px] flex justify-between items-start gap-[40px] mb-[24px];
+  @apply relative w-full h-[167px] rounded-[12px] p-[33px_38px_33px_16px] flex justify-between items-start gap-[40px] mb-[24px];
   background: linear-gradient(134.97deg, #008D94 -4.81%, #1B3564 32.5%, #040B1D 96.44%);
 }
 .offcanvas-body .insignia-box .left{
@@ -155,13 +155,10 @@ export default {
   @apply font-[JalnanGothic] font-normal text-[12px] leading-[14px] text-[#C8ECFF];
 }
 .offcanvas-body .insignia-box .right{
-  @apply relative;
+  @apply absolute right-0 top-0;
 }
-.offcanvas-body .insignia-box .right .bg{
-  @apply absolute right-0;
-}
-.offcanvas-body .insignia-box .right .bg img{
-  @apply min-w-[120px];
+.offcanvas-body .insignia-box .right img{
+  @apply rounded-[12px];
 }
 .offcanvas-body .correctContent{
   @apply w-full flex flex-col justify-start items-start gap-[12px] mb-[65px];
