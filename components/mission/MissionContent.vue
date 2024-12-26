@@ -29,7 +29,8 @@ export default {
   data() {
     return {
       // pdfSrc: require('~/assets/pdf/mission-pdf.pdf')
-      pdfSrc: '/pdf/mission-pdf.pdf'
+      // pdfSrc: '/pdf/mission-pdf.pdf'
+      pdfSrc: 'https://img.thinkpool.com/invest_master/pdf/mission-pdf.pdf'
     }
   },
   methods: {
