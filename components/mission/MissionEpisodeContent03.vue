@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="missionEpisodeContent__chart">
-      <div v-if="selectedItem === !null" class="explanation">
+      <div class="explanation">
         <div class="candle">일봉</div>
         <div class="type">
           <span>이동평균선</span>
