@@ -59,7 +59,7 @@
         <div class="line"></div>
         <div class="menu">
           <button @click="goLink('/')">메인-게임참여</button>
-          <button>게임소개</button>
+          <button @click="goLink('/intro')">게임소개</button>
           <button @click="goLink('/ranking')">업적&랭킹</button>
           <button @click="goLink('/ranking/all')">전체 랭킹</button>
         </div>
