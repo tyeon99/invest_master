@@ -16,9 +16,14 @@
 em{
   @apply not-italic;
 }
+.text-truncate{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /* pc테스트 */
-body{
+/* body{
   @apply bg-[#4f4f4f];
 }
 .wrap{
@@ -26,4 +31,4 @@ body{
 }
 .offcanvas-overlay {
   @apply max-w-[375px] m-[0_auto];
-}
+} */

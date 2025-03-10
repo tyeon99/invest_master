@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <RankingHeader />
+    <RankingHeader title="업적&랭킹" />
     <div class="container">
       <div class="content">
         <RankingContent />

@@ -35,7 +35,6 @@
               type="radio"
               name="class"
               :checked="idx === 0"
-              :disabled="idx !== 0"
             />
             <label :for="'class0' + (idx + 1)">
               <em>{{ missionClass.title }}</em>
@@ -92,13 +91,12 @@ export default {
       this.isAnalyzing = true
       setTimeout(() => {
         this.closeAIOffcanvas()
-        this.$emit('ai-recommendation')
         window.scrollTo({
           top: 0,
           left: 0,
           behavior: 'smooth'
         })
-      }, 5000)
+      }, 4000)
     }
   }
 }
@@ -175,12 +173,5 @@ export default {
 }
 .offcanvas-footer button.active.ing{
   @apply bg-[#C6F3F1] text-[#85C0C1] bg-none;
-}
-
-.offcanvas-body .radio-group .radio.disabled input[type=radio]+label em{
-  @apply border-[#B6BECA] text-[#B6BECA];
-}
-.offcanvas-body .radio-group .radio.disabled input[type=radio]+label span{
-  @apply text-[#B6BECA];
 }
 </style>

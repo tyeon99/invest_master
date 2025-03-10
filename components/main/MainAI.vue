@@ -6,13 +6,15 @@
         <span>AI가 추천하는 클래스 마스터 과정</span>
         <em>(추천을 누르고 원하는 클래스를 PICK)</em>
       </p>
+      <!-- 활성화 -->
       <img width="64" src="~/assets/img/main/main_ai-icon.png" alt="ai추천">
+      <!-- 비활성화 -->
+      <!-- <img width="64" src="~/assets/img/main/main_ai-icon-disabled.png" alt="ai추천"> -->
     </button>
     <MainAIOffcanvas
       v-if="isAIOffcanvasOpen"
       :isOffcanvasAni="isOffcanvasAni"
       @close-aiOffcanvas="closeAIOffcanvas"
-      @ai-recommendation="triggerAIRecom"
     />
   </div>
 </template>
@@ -36,10 +38,6 @@ export default {
         this.isAIOffcanvasOpen = false
       }, 300)
     },
-    triggerAIRecom() {
-      // MainContent 컴포넌트를 ref로 참조하여 aiRecom 메소드 호출
-      this.$emit('ai-recommendation')
-    }
   }
 }
 </script>

@@ -38,6 +38,7 @@
 import MissionEpisodeContent01 from '~/components/mission/MissionEpisodeContent01.vue'
 import MissionEpisodeContent02 from '~/components/mission/MissionEpisodeContent02.vue'
 import MissionEpisodeContent03 from '~/components/mission/MissionEpisodeContent03.vue'
+import MissionEpisodeContent04 from '~/components/mission/MissionEpisodeContent04.vue'
 
 export default {
   data() {
@@ -47,7 +48,8 @@ export default {
         { name: "tab1", label: '브리핑', component: MissionEpisodeContent01 },
         { name: "tab2", label: '투자정보', component: MissionEpisodeContent02 },
         { name: "tab3", label: '차트/매매', component: MissionEpisodeContent03 },
-        { name: "tab4", label: '미션종료' }
+        { name: "tab4", label: '매매내역', component: MissionEpisodeContent04 },
+        { name: "tab5", label: '미션종료' }
       ],
       isOffcanvasAni: false,
       isEndOffcanvasOpen: false
@@ -58,7 +60,7 @@ export default {
       this.activeTab = tabName
     },
     tabClick(tab) {
-      if (tab.name === "tab4") {
+      if (tab.name === "tab5") {
         this.openEndOffcanvas()
       } else {
         this.activeTab = tab.name
@@ -83,10 +85,10 @@ export default {
   @apply w-full;
 }
 .missionEpisode__tab{
-  @apply w-full flex justify-center items-center sticky top-0 bg-[#fff] z-[999];
+  @apply w-full flex justify-center items-center sticky top-[58px] bg-[#fff] z-[999];
 }
 .missionEpisode__tab button{
-  @apply w-[25%] h-[42px] border-b-[2px] border-[#2c2c2c] font-semibold text-[16px] leading-[20px] text-center text-[#B6BECA] pt-[2px];
+  @apply w-[25%] h-[42px] border-b-[2px] border-[#2c2c2c] font-semibold text-[14px] leading-[16px] text-center text-[#B6BECA] pt-[2px];
 }
 .missionEpisode__tab button.active{
   @apply font-extrabold text-[#2c2c2c] border-[#00A6BD];

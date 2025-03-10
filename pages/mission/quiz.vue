@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div class="wrap">
-    <MissionHeader />
+    <MissionQHeader />
     <div class="container">
       <MissionQIntro 
         :isResultVisible="isResultVisible" 

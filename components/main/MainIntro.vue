@@ -14,7 +14,10 @@
       </div>
     </div>
     <div class="mainIntro__title">
-      클래스 마스터를 향한 위대한 여정! <span>미션 선택</span>
+      <!-- 로그인 안 했을 때 -->
+      클래스 마스터를 향한 위대한 여정! <button>로그인하세요</button>
+      <!-- 로그인 했을 때 -->
+      <!-- 클래스 마스터를 향한 위대한 여정! <button>미션 선택</button> -->
     </div>
   </div>
 </template>
@@ -55,7 +58,7 @@ export default {
 .mainIntro__title{
   @apply w-full font-extrabold text-[16px] leading-[20px] text-[#2C2C2C] pl-[12px] mb-[20px];
 }
-.mainIntro__title span{
+.mainIntro__title button{
   @apply text-[#00C898] border-b-[2px] border-[#00C898];
 }
 </style>

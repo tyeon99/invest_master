@@ -5,12 +5,18 @@
         <img width="10" src="~/assets/img/common/back-icon.png" alt="뒤로가기">
       </button>
     </div>
-    <div class="episodeHeader__txt">업적&랭킹</div>
+    <div class="episodeHeader__txt">{{ title }}</div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      required: true
+    }
+  },
   methods: {
     goBack(){
       this.$router.go(-1)

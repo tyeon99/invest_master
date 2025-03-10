@@ -1,13 +1,13 @@
 <template>
   <div
     class="offcanvas-overlay animate__animated animate__faster"
-    :class="{ 'animate__fadeIn': isOffcanvasAni, 'animate__fadeOut': !isOffcanvasAni }" @click="closeMenuOffcanvas">
+    :class="{ 'animate__fadeIn': isOffcanvasAni, 'animate__fadeOut': !isOffcanvasAni }" @click="closeMenuOffcanvas"
+  >
     <div
       class="offcanvas-content animate__animated animate__faster"
-      :class="{ 'animate__fadeInLeft': isOffcanvasAni, 'animate__fadeOutLeft': !isOffcanvasAni }"
-      @click.stop
+      :class="{ 'animate__fadeInLeft': isOffcanvasAni, 'animate__fadeOutLeft': !isOffcanvasAni }" @click.stop>
+      <div class="offcanvas-close"
     >
-      <div class="offcanvas-close">
         <button @click="closeMenuOffcanvas">
           <img width="14" src="~/assets/img/main/offcanvas_close-icon.png" alt="닫기">
         </button>
@@ -17,13 +17,17 @@
           <img width="62" src="~/assets/img/main/logo-icon.png" alt="로고">
         </div>
         <div class="txt">투자 마스터 클래스</div>
-        <div class="logOut">로그아웃</div>
+        <div class="logGroup">
+          <button class="logIn">로그인</button>
+          <button class="logOut">로그아웃</button>
+        </div>
       </div>
       <div class="offcanvas-body">
         <div class="profile">
           <div class="left">
             <div class="icon">
-              <img width="70" src="~/assets/img/ranking/character-icon.png" alt="캐릭터">
+              <img width="70" src="~/assets/img/ranking/character-icon01.png" alt="캐릭터">
+              <!-- 5단계 캐릭터 이미지명 character-icon 뒤에 01 02 03 04 05  -->
             </div>
             <div class="name">
               <strong>액티브시니어</strong> 님
@@ -36,12 +40,17 @@
             </div>
             <div class="level">
               <img width="16" src="~/assets/img/main/game-icon.png" alt="게임 아이콘">
-              <span>게임레벨</span>
+              <span>게임포인트</span>
               <strong>20</strong>
             </div>
             <div class="classMaster">
-              <strong>미달성</strong>
-              <span>클래스마스터</span>
+              <div class="decoration">
+                <img width="44" src="~/assets/img/ranking/insignia01-lg.png" alt="클래스마스터 훈장">
+              </div>
+              <div class="txt">
+                <strong>미달성</strong>
+                <span>클래스마스터</span>
+              </div>
             </div>
           </div>
         </div>
@@ -50,8 +59,9 @@
         <div class="line"></div>
         <div class="menu">
           <button @click="goLink('/')">메인-게임참여</button>
+          <button>게임소개</button>
           <button @click="goLink('/ranking')">업적&랭킹</button>
-          <button>공지사항</button>
+          <button @click="goLink('/ranking/all')">전체 랭킹</button>
         </div>
       </div>
     </div>
@@ -82,10 +92,10 @@ export default {
   @apply fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.6)] flex justify-start items-center z-[999] pr-[55px];
 }
 .offcanvas-content{
-  @apply w-[320px] h-full bg-[#fff] p-[28px_10px];
+  @apply w-[320px] h-full bg-[#fff] p-[28px_10px] overflow-y-auto;
 }
 .offcanvas-close{
-  @apply pl-[18px] mb-[40px];
+  @apply pl-[18px] mb-[30px];
 }
 .offcanvas-header{
   @apply pl-[15px] mb-[30px];
@@ -94,13 +104,19 @@ export default {
   @apply mb-[4px];
 }
 .offcanvas-header .txt{
-  @apply mb-[32px] font-extrabold text-[22px] leading-[26.25px] text-[#2c2c2c];
+  @apply mb-[30px] font-extrabold text-[22px] leading-[26.25px] text-[#2c2c2c];
 }
-.offcanvas-header .logOut{
+.offcanvas-header .logGroup{
+  @apply w-full flex justify-start items-center gap-[8px];
+}
+.offcanvas-header button{
   @apply w-fit flex justify-center items-center p-[9px_24px] font-extrabold text-[14px] leading-[14px] text-[#2c2c2c] rounded-[16px] border border-[#2c2c2c];
 }
+.offcanvas-header button.logIn{
+  @apply bg-[#2C2C2C] text-[#fff];
+}
 .offcanvas-body{
-  @apply w-full mb-[38px];
+  @apply w-full mb-[30px];
 }
 .offcanvas-body .profile{
   @apply w-[300px] rounded-[8px] p-[13px_24px_15px] flex justify-between items-center;
@@ -141,10 +157,13 @@ export default {
   @apply pl-[5px] font-extrabold text-[24px] leading-[14px] text-[#fff];
 }
 .offcanvas-body .profile .right .classMaster{
-  @apply pt-[24px] flex flex-col justify-end items-end gap-[10px];
+  @apply pt-[20px] flex justify-end items-end gap-[10px];
+}
+.offcanvas-body .profile .right .classMaster .txt{
+  @apply flex flex-col gap-[10px] justify-end items-end;
 }
 .offcanvas-body .profile .right .classMaster strong{
-  @apply block font-extrabold text-[20px] leading-[14px] text-[#fff] pr-[4px];
+  @apply block font-extrabold text-[20px] leading-[20px] text-[#fff] pr-[4px];
 }
 .offcanvas-body .profile .right .classMaster span{
   @apply p-[5px_9px] rounded-[12px] border border-[#fff] font-medium text-[10px] leading-[14px] text-[#fff];
@@ -153,7 +172,7 @@ export default {
   @apply pl-[15px]
 }
 .offcanvas-footer .line{
-  @apply w-[140px] h-[6px] bg-[#2c2c2c] mb-[34px];
+  @apply w-[140px] h-[6px] bg-[#2c2c2c] mb-[30px];
 }
 .offcanvas-footer .menu{
   @apply flex flex-col gap-[24px] justify-start items-start;

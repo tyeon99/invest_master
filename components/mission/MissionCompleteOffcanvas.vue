@@ -18,7 +18,7 @@
         매매 에피소드 결과 화면으로 이동합니다.
       </div>
       <div class="offcanvas-footer">
-        <button @click="closeCompleteOffcanvas">확 인</button>
+        <button @click="openCorrectOffcanvas">확 인</button>
       </div>
     </div>
   </div>
@@ -35,6 +35,9 @@ export default {
   methods: {
     closeCompleteOffcanvas() {
       this.$emit('close-completeOffcanvas')
+    },
+    openCorrectOffcanvas() {
+      this.$emit('open-correctOffcanvas')
     }
   }
 }

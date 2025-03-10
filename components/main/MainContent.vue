@@ -3,14 +3,18 @@
 <template>
   <div class="mainContent">
     <div class="mainContent__class">
-      <div v-for="(classData, idx) in classDatas" :key="idx" class="mainContent__class--box">
+      <div
+        v-for="(classData, idx) in classDatas"
+        :key="idx"
+        class="mainContent__class--box"
+      >
         <div class="classNum">
           <span>{{ classData.number }}</span>
         </div>
         <div class="className" v-html="classData.name"></div>
       </div>
     </div>
-    <div class="mainContent__mission">
+    <div class="mainContent__mission lock"> <!--로그아웃상태일 때 클래스 lock 추가-->
       <table>
         <tbody>
           <tr
@@ -20,16 +24,19 @@
             <td
               v-for="(mission, colIndex) in missionRow"
               :key="colIndex"
-              :class="{ 'lock' : colIndex !== 0, 'ai': isAIHighlighted(rowIndex, colIndex) }"
-              @click="colIndex === 0 ? (rowIndex === 0 ? goLink('/episode') : openCheckOffcanvas()) : null"
+              :class="{ lock: colIndex !== 0, ai: rowIndex === 1 && colIndex === 0 }"
+              @click="goLink('/mission')"
             >
               <div class="missionBox">
-                <span
+                <span 
+                  v-if="!(rowIndex === 2 && colIndex === 0) && !(rowIndex === 3 && colIndex === 0)"
                   class="missionStatus"
-                  :class="{ '!hidden' : colIndex === 0 && !isAIHighlighted(rowIndex, colIndex) }"
                 >
-                  <!-- {{ colIndex !== 0 ? '잠긴미션' : '미션완료' }} -->
-                  {{ getMissionStatusText(rowIndex, colIndex) }}
+                  {{
+                    rowIndex === 0 && colIndex === 0 ? '미션완료' :
+                    rowIndex === 1 && colIndex === 0 ? 'AI추천' :
+                    '잠긴미션'
+                  }}
                 </span>
                 <div class="missionName" v-html="mission.name"></div>
                 <div class="missionPer">
@@ -49,6 +56,15 @@
           </tr>
         </tbody>
       </table>
+      <div class="lockPopup">
+        <img width="150" src="~/assets/img/main/lockPopup-icon.png" alt="잠김">
+        <div class="title">환영합니다!</div>
+        <p>
+          새로운 모험이 기다리고 있습니다!<br />
+          계정을 로그인하고 게임을 시작하세요.
+        </p>
+        <button>로그인</button>
+      </div>
     </div>
     <MainCheckOffcanvas
       v-if="isCheckOffcanvasOpen"
@@ -65,10 +81,9 @@ export default {
       classDatas: [
         { number: 'Class 01', name: '가격패턴 <br>투자기법' },
         { number: 'Class 02', name: '대가들의 <br>투자기법' },
-        { number: 'Class 03', name: '가치평가 <br>매매기법' },
-        { number: 'Class 04', name: 'AI 라씨 <br>매매신호' },
+        { number: 'Class 03', name: '가치평가 <br>매매기법' }
+        // { number: 'Class 04', name: 'AI 라씨 <br>매매신호' },
       ],
-      missionNumbers: ["미션 01", "미션 02", "파이널 미션", "스페셜 미션"],
       missionRows: [
         [
           {
@@ -85,22 +100,7 @@ export default {
             name: "캔들, 파동동<br> 매매기법",
             completionRate: "0%",
             accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
+          }
         ],
         [
           {
@@ -117,22 +117,7 @@ export default {
             name: "조엘 그린블라 <br>트의 마법공식 <br> 투자기법",
             completionRate: "0%",
             accuracyRate: "0%",
-          },
-          {
-            name: "추세<br> 매매기법",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
+          }
         ],
         [
           {
@@ -149,55 +134,25 @@ export default {
             name: "재무제표 <br>분석",
             completionRate: "0%",
             accuracyRate: "0%",
-          },
-          {
-            name: "추세<br> 매매기법",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
+          }
         ],
-        [
-          {
-            name: "AI매매 기본<br> 활용하기",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "종목캐치 활용은<br> 큰손으로",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "고도화된 알고 <br>리즘 활용하기",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "추세<br> 매매기법",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-          {
-            name: "이동평균선<br> 심화 매매기법 01",
-            completionRate: "0%",
-            accuracyRate: "0%",
-          },
-        ],
+        // [
+        //   {
+        //     name: "AI매매 기본<br> 활용하기",
+        //     completionRate: "0%",
+        //     accuracyRate: "0%",
+        //   },
+        //   {
+        //     name: "종목캐치 활용은<br> 큰손으로",
+        //     completionRate: "0%",
+        //     accuracyRate: "0%",
+        //   },
+        //   {
+        //     name: "고도화된 알고 <br>리즘 활용하기",
+        //     completionRate: "0%",
+        //     accuracyRate: "0%",
+        //   }
+        // ],
       ],
       isOffcanvasAni: false,
       isCheckOffcanvasOpen: false,
@@ -217,27 +172,6 @@ export default {
       setTimeout(() => {
         this.isCheckOffcanvasOpen = false
       }, 300)
-    },
-    aiRecom(){
-      this.aiHighlightedCells = [
-        { row: 0, col: 0 }, { row: 0, col: 1 }, { row: 0, col: 2 },
-        { row: 1, col: 0 }, { row: 1, col: 1 }
-      ];
-    },
-    isAIHighlighted(row, col) {
-      return this.aiHighlightedCells.some(
-        cell => cell.row === row && cell.col === col
-      );
-    },
-    getMissionStatusText(rowIndex, colIndex) {
-      // AI 추천이 적용된 경우 'AI추천'으로 텍스트 반환
-      if (this.isAIHighlighted(rowIndex, colIndex)) {
-        return 'AI추천'
-      } else if (colIndex === 0) {
-        return '미션완료' // colIndex === 0일 때는 '미션완료'
-      } else {
-        return '잠긴미션' // 그 외에는 '잠긴미션'
-      }
     },
     calculateCompletionRate(rate) {
       const numericRate = parseInt(rate.replace('%', ''), 10)
@@ -268,10 +202,10 @@ export default {
   @apply font-[JalnanGothic] w-full text-right font-normal text-[12px] leading-[14.4px] text-[#2c2c2c];
 }
 .mainContent__mission{
-  @apply !w-[696px] overflow-x-auto pr-[12px];
+  @apply relative !w-[348px] overflow-x-auto pr-[12px];
 }
 .mainContent__mission table{
-  @apply w-[696px] border-separate mt-[24px] border-spacing-y-[4px];
+  @apply w-[348px] border-separate mt-[24px] border-spacing-y-[4px];
 }
 .mainContent__mission table tbody tr td{
   @apply relative w-[116px] h-[104px] p-[26px_0_4px] border border-[#a2e3cc] border-l-0;
@@ -284,13 +218,7 @@ export default {
   @apply content-['미션_02'];
 }
 .mainContent__mission tbody tr:first-child td:nth-child(3)::before{
-  @apply content-['파이널_미션'];
-}
-.mainContent__mission tbody tr:first-child td:nth-child(4)::before{
-  @apply w-[346px] content-['스페셜_미션'];
-}
-.mainContent__mission tbody tr:first-child td:nth-child(5)::before, .mainContent__mission tbody tr:first-child td:nth-child(6)::before{
-  @apply content-none;
+  @apply content-['미션_03'];
 }
 .mainContent__mission table tbody tr td.lock{
   @apply relative after:absolute after:inline-block after:w-full after:h-full after:bg-[rgba(0,0,0,0.6)] after:left-0 after:right-0 after:bottom-0 after:top-0 after:z-[10];
@@ -330,5 +258,23 @@ export default {
 }
 .mainContent__mission table tbody tr td.ai .missionStatus{
   @apply border-none bg-[#00E2AC] text-[#2c2c2c];
+}
+.mainContent__mission.lock table tbody{
+  @apply relative after:absolute after:inline-block after:w-full after:h-[calc(100%-4px)] after:bg-[rgba(0,0,0,0.7)] after:left-0 after:right-0 after:bottom-0 after:top-0 after:z-[12];
+}
+.lockPopup{
+  @apply hidden;
+}
+.mainContent__mission.lock .lockPopup{
+  @apply absolute flex flex-col justify-center items-center z-[15] left-0 top-[24px] p-[8px_26px_0_33px];
+}
+.mainContent__mission.lock .lockPopup .title{
+  @apply font-[JalnanGothic] leading-[24px] font-normal text-[20px] text-[#fff] mb-[8px];
+}
+.mainContent__mission.lock .lockPopup p{
+  @apply font-normal text-[14px] leading-[16px] text-center text-[#fff] mb-[24px];
+}
+.mainContent__mission.lock .lockPopup button{
+  @apply p-[15px_80px_12px] bg-[#FF416E] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[28px] font-[JalnanGothic] font-normal text-[16px] leading-[16px] text-[#fff];
 }
 </style>

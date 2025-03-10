@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <MissionEpisodeHeader />
     <div class="container">
       <div class="content">
         <MissionEpisode />

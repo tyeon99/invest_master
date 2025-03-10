@@ -5,15 +5,15 @@
     <div class="container">
       <MainIntro />
       <div class="content">
-        <MainContent ref="mainContent" />
+        <MainContent />
         <MainNotice />
-        <MainAI @ai-recommendation="triggerAIRecom" />
+        <MainAI />
       </div>
     </div>
     <MainStartOffcanvas
       v-if="isStartOffcanvasOpen"
       :isOffcanvasAni="isOffcanvasAni"
-      @close-startOffcanvas="closeStartOffcanvas"
+      @close-startOffcanvas="closeStartOffcanvas" 
     />
   </div>
 </template>
@@ -28,19 +28,16 @@ export default {
   },
   mounted() {
     // 로컬 스토리지에서 방문 여부 확인
-    const hasVisited = localStorage.getItem("hasVisited");
+    const hasVisited = localStorage.getItem("hasVisited")
 
     if (!hasVisited) {
       // 처음 방문한 경우만 열기
-      this.openStartOffcanvas();
-      localStorage.setItem("hasVisited", "true"); // 방문 기록 저장
+      this.openStartOffcanvas()
+      localStorage.setItem("hasVisited", "true") // 방문 기록 저장
     }
+    // this.openStartOffcanvas()
   },
   methods: {
-    triggerAIRecom() {
-      // MainContent의 aiRecom 메소드 호출
-      this.$refs.mainContent.aiRecom();
-    },
     openStartOffcanvas() {
       this.isOffcanvasAni = true
       this.isStartOffcanvasOpen = true
