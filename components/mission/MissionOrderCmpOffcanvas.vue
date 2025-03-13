@@ -8,7 +8,7 @@
       @click.stop
     >
       <div class="offcanvas-icon">
-        <img width="182" src="~/assets/img/main/offcanvas-icon.png" alt="아이콘">
+        <img width="130" src="~/assets/img/common/orderOffcanvas-icon.png" alt="아이콘">
       </div>
       <div class="offcanvas-header">
         체결 완료
@@ -47,7 +47,7 @@ export default {
   @apply relative w-full bg-[#fff] p-[68px_32px_44px] rounded-t-[36px];
 }
 .offcanvas-icon{
-  @apply absolute top-[-125px] left-[50%] translate-x-[-50%];
+  @apply absolute top-[-92px] left-[50%] translate-x-[-50%];
 }
 .offcanvas-header{
   @apply font-[JalnanGothic] font-normal text-[16px] leading-[20px] text-center text-[#2c2c2c] mb-[30px];
