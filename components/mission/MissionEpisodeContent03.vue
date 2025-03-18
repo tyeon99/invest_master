@@ -27,35 +27,7 @@
       <button @click="openConfirmedOffcanvas">매매완료</button>
     </div>
     <div class="missionEpisodeContent__chart">
-      <div class="explanation">
-        <div class="candle">일봉</div>
-        <div class="type">
-          <span>이동평균선</span>
-          <span><em></em>5일</span>
-          <span><em></em>20일</span>
-          <span><em></em>60일</span>
-          <span><em></em>120일</span>
-        </div>
-      </div>
-      <!-- 티플랙스 -->
-      <div v-if="selectedItem.name === '티플랙스'" class="chart chart01">
-        <div ref="chartLeft" class="left">
-          <img width="795" src="~/assets/img/mission/item01-chart01.png" @load="scrollToRight">
-        </div>
-        <div class="right">
-          <img width="60" src="~/assets/img/mission/item01-chart01-right.png">
-        </div>
-      </div>
-
-      <!-- 대주전자재료 -->
-      <div v-if="selectedItem.name === '대주전자재료'" class="chart chart02">
-        <div ref="chartLeft" class="left">
-          <img width="766.455" src="~/assets/img/mission/item02-chart01.png" @load="scrollToRight">
-        </div>
-        <div class="right">
-          <img width="60" src="~/assets/img/mission/item02-chart01-right.png">
-        </div>
-      </div>
+      <img src="~/assets/img/mission/chart-img.png" alt="차트이미지">
     </div>
     <!-- 매수 주문 -->
     <MissionBuyOffcanvas 
@@ -256,49 +228,7 @@ export default {
 .missionEpisodeContent__chart{
   @apply w-full;
 }
-.missionEpisodeContent__chart .explanation{
-  @apply w-full p-[4px_16px] bg-[#F9F9FA] flex justify-between items-center;
-}
-.missionEpisodeContent__chart .explanation .candle{
-  @apply w-[36px] h-[20px] flex justify-center items-center bg-[#fff] border border-[#9D9D9D] font-extrabold text-[12px] leading-[14px] text-[#2c2c2c];
-}
-.missionEpisodeContent__chart .explanation .type{
-  @apply flex justify-end items-center gap-[8px];
-}
-.missionEpisodeContent__chart .explanation .type span{
-  @apply font-semibold text-[12px] leading-[14px] text-[#2c2c2c] flex justify-center items-center gap-[4px];
-}
-.missionEpisodeContent__chart .explanation .type span em{
-  @apply inline-block w-[6px] h-[6px] rounded-full;
-}
-.missionEpisodeContent__chart .explanation .type span:nth-child(2) em{
-  @apply bg-[#EF4810];
-}
-.missionEpisodeContent__chart .explanation .type span:nth-child(3) em{
-  @apply bg-[#C764D8];
-}
-.missionEpisodeContent__chart .explanation .type span:nth-child(4) em{
-  @apply bg-[#609CDE];
-}
-.missionEpisodeContent__chart .explanation .type span:nth-child(5) em{
-  @apply bg-[#94BC60];
-}
-.missionEpisodeContent__chart .chart{
-  @apply relative w-full pr-[60px] flex justify-end items-center;
-}
-.missionEpisodeContent__chart .chart .right{
-  @apply absolute right-0 top-0;
-}
-.missionEpisodeContent__chart .chart01 .left{
-  @apply w-[795px] overflow-x-auto text-right;
-}
-.missionEpisodeContent__chart .chart01 .left img{
-  @apply min-w-[795px];
-}
-.missionEpisodeContent__chart .chart02 .left{
-  @apply w-[766.455px] overflow-x-auto text-right;
-}
-.missionEpisodeContent__chart .chart02 .left img{
-  @apply min-w-[766.455px];
+.missionEpisodeContent__chart img{
+  @apply w-full;
 }
 </style>
