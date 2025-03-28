@@ -3,7 +3,7 @@
     <div class="w-full">
       <div class="missionContent__name">
         <span>미션01</span>
-        <p>5-20일 골든크로스 투자기법</p>
+        <p>5-20일 골든크로스 투자기법 5-20일 골든크로스 투자기법</p>
       </div>
       <div class="fullBtnGroup">
         <button @click="openPDF">
@@ -59,7 +59,7 @@ export default {
   @apply w-full flex justify-start items-center gap-[12px] px-[16px] mb-[16px];
 }
 .missionContent__name span{
-  @apply inline-block border border-[#7ED8E4] rounded-[12px] p-[5px_9px] font-semibold text-[12px] leading-[12px] text-[#00A6BD];
+  @apply min-w-[54px] inline-block border border-[#7ED8E4] rounded-[12px] p-[5px_9px] font-semibold text-[12px] leading-[12px] text-[#00A6BD];
 }
 .missionContent__name p{
   @apply font-[JalnanGothic] font-normal text-[14px] leading-[16px] text-[#2c2c2c];

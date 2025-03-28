@@ -5,7 +5,7 @@
         <img width="10" src="~/assets/img/common/back-icon.png" alt="뒤로가기">
       </button>
     </div>
-    <div class="missionHeader__txt">미션학습 : 5-20일 골든크로스 투자기법</div>
+    <div class="missionHeader__txt text-truncate">미션학습 : 5-20일 골든크로스 투자기법 미션학습 : 5-20일 골든크로스 투자기법</div>
   </div>
 </template>
 
@@ -27,6 +27,6 @@ export default {
   @apply flex justify-center items-center relative z-[99];
 }
 .missionHeader__txt{
-  @apply w-full text-center absolute left-[50%] translate-x-[-50%] font-extrabold text-[18px] leading-[21.48px] text-[#2c2c2c];
+  @apply w-full text-center absolute left-[50%] translate-x-[-50%] font-extrabold text-[18px] leading-[21.48px] text-[#2c2c2c] pl-[40px] pr-[16px];
 }
 </style>
