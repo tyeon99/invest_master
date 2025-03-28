@@ -83,7 +83,7 @@ export default {
   @apply w-[320px] h-[48px] rounded-[28px] border-[2px] border-[#2c2c2c] font-[JalnanGothic] font-normal text-[14px] leading-[14px] text-[#2c2c2c] pt-[3px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] bg-[#fff];
 }
 .pdf-loading{
-  @apply w-full h-[400px] flex flex-col justify-center items-center gap-[16px] bg-[#EEF0F3];
+  @apply w-full h-[400px] flex flex-col justify-center items-center gap-[20px] bg-[#fff];
 }
 .pdf-loading span{
   @apply font-[JalnanGothic] text-[14px] font-normal text-[#2c2c2c] leading-[16px];
