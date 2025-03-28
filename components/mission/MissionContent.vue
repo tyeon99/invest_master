@@ -11,12 +11,15 @@
           <span>PDF 보기(전체)</span>
         </button>
       </div>
-      <div class="missionContent__pdf">
-        <!-- <img src="~/assets/img/mission/pdf-preview.png" alt="PDF 미리보기"> -->
-        <!-- <embed :src="pdfSrc" width="100%" height="400px" type="application/pdf" /> -->
+      <!-- <div class="missionContent__pdf">
         <iframe :src="pdfSrc" width="100%" height="400px"></iframe>
-        <!-- <object :data="pdfSrc" type="application/pdf" width="100%" height="400px"></object> -->
+      </div> -->
+      <!-- 불러오는 중 -->
+      <div class="pdf-loading">
+        <div class="loader"></div>
+        <span>불러오는 중입니다...</span>
       </div>
+      <!-- 불러오는 중 -->
     </div>
     <div class="nextButton">
       <button @click="goLink('/mission/quiz')">NEXT</button>
@@ -79,4 +82,26 @@ export default {
 .nextButton button{
   @apply w-[320px] h-[48px] rounded-[28px] border-[2px] border-[#2c2c2c] font-[JalnanGothic] font-normal text-[14px] leading-[14px] text-[#2c2c2c] pt-[3px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] bg-[#fff];
 }
+.pdf-loading{
+  @apply w-full h-[400px] flex flex-col justify-center items-center gap-[16px] bg-[#EEF0F3];
+}
+.pdf-loading span{
+  @apply font-[JalnanGothic] text-[14px] font-normal text-[#2c2c2c] leading-[16px];
+}
+.loader {
+  width: 40px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #7ED8E4;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1.2s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
 </style>
