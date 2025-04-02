@@ -5,18 +5,24 @@
 <script>
 export default {
   mounted() {
-    const viewportMeta = document.querySelector('meta[name="viewport"]')
-
-    function adjustViewport() {
+    this.updateViewport()
+    window.addEventListener('resize', this.updateViewport)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateViewport)
+  },
+  methods: {
+    updateViewport() {
       if (screen.width <= 375) {
-        viewportMeta.setAttribute('content', 'width=375px, user-scalable=0')
+        document
+          .querySelector('meta[name="viewport"]')
+          .setAttribute('content', 'width=375px', 'user-scalable=0')
       } else {
-        viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no')
+        document
+          .querySelector('meta[name="viewport"]')
+          .setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
       }
     }
-
-    adjustViewport()
-    window.addEventListener('resize', adjustViewport)
   }
 }
 </script>
