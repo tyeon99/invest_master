@@ -208,7 +208,7 @@ export default {
   @apply w-[348px] border-separate mt-[24px] border-spacing-y-[4px];
 }
 .mainContent__mission table tbody tr td{
-  @apply relative w-[116px] h-[104px] p-[26px_0_4px] border border-[#a2e3cc] border-l-0;
+  @apply relative w-[116px] h-[104px] p-[26px_5px_4px] border border-[#a2e3cc] border-l-0;
 }
 .mainContent__mission tbody tr:first-child td::before{
   @apply absolute content-['미션_01'] flex justify-center items-center w-[114px] h-[24px] top-[-25px] left-[1px] rounded-t-[8px] font-[JalnanGothic] font-normal text-[10px] leading-[12px] text-[#2c2c2c];
