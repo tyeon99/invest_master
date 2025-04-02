@@ -22,13 +22,13 @@ em{
   white-space: nowrap;
 }
 
-/* pc테스트 */
-/* body{
-  @apply bg-[#4f4f4f];
+/* 최대 사이즈 */
+body{
+  @apply bg-[#fff];
 }
 .wrap{
-  @apply !max-w-[375px] h-[100dvh] m-[0_auto] bg-[#fff];
+  @apply !max-w-[480px] m-[0_auto] bg-[#fff];
 }
 .offcanvas-overlay {
-  @apply max-w-[375px] m-[0_auto];
-} */
+  @apply max-w-[480px] m-[0_auto];
+}

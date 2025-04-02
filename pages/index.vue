@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  layout: 'default',
   data() {
     return {
       isOffcanvasAni: false,
