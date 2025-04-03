@@ -201,7 +201,7 @@ export default {
   background: linear-gradient(147.24deg, #00E2AC 3.67%, #41D2FE 94.09%);
 }
 .achieved-box .bottom{
-  @apply p-[16px_10px_14px] flex flex-col justify-start items-center gap-[8px] rounded-[0_0_12px_12px];
+  @apply min-h-[166px] p-[16px_10px_14px] flex flex-col justify-start items-center gap-[8px] rounded-[0_0_12px_12px];
   background: linear-gradient(134.97deg, #008D94 -4.81%, #1B3564 32.5%, #040B1D 96.44%);
 }
 .achieved-box .bottom img{
