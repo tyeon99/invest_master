@@ -167,7 +167,7 @@ export default {
   @apply w-full flex justify-end items-center mb-[16px] p-[26px_24px_8px] sticky top-0 bg-[#fff] z-[99];
 }
 .offcanvas-body .title{
-  @apply w-full font-extrabold text-[16px] leading-[19px] text-[#2c2c2c] text-center mb-[28px];
+  @apply w-full font-extrabold text-[16px] leading-[19px] text-[#2c2c2c] text-center mb-[28px] px-[16px];
 }
 .offcanvas-body .txt{
   @apply w-full px-[8px] mb-[28px];
