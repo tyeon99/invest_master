@@ -16,6 +16,10 @@
       :isOffcanvasAni="isOffcanvasAni"
       @close-aiOffcanvas="closeAIOffcanvas"
     />
+    <!-- 토스트 메시지 -->
+    <div v-if="toastMessage" class="toast">
+      로그인 후 이용가능합니다.
+    </div>
   </div>
 </template>
 
@@ -24,7 +28,8 @@ export default {
   data() {
     return {
       isOffcanvasAni: false,
-      isAIOffcanvasOpen: false
+      isAIOffcanvasOpen: false,
+      toastMessage: false
     }
   },
   methods: {
@@ -38,6 +43,12 @@ export default {
         this.isAIOffcanvasOpen = false
       }, 300)
     },
+    showToast() {
+      this.toastMessage = true
+      setTimeout(() => {
+        this.toastMessage = false
+      }, 2000)
+    }
   }
 }
 </script>
@@ -57,5 +68,19 @@ export default {
 }
 .mainAI button p em{
   @apply font-medium text-[11px] leading-[13px] text-[#2d2262];
+}
+.toast{
+  @apply absolute bottom-[13%] left-[50%] translate-x-[-50%] font-normal text-[12px] text-[#fff] bg-[rgba(90,90,90,0.9)] p-[8px_12px] rounded-[24px];
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 </style>

@@ -19,7 +19,7 @@
         <div class="txt">투자 마스터 클래스</div>
         <div class="logGroup">
           <button class="logIn">로그인</button>
-          <button class="logOut">로그아웃</button>
+          <button class="logOut" @click="showToast">로그아웃</button>
         </div>
       </div>
       <div class="offcanvas-body">
@@ -65,6 +65,10 @@
         </div>
       </div>
     </div>
+    <!-- 토스트 메시지 -->
+    <div v-if="toastMessage" class="toast">
+      로그인 후 이용가능합니다.
+    </div>
   </div>
 </template>
 
@@ -76,12 +80,23 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      toastMessage: false
+    }
+  },
   methods: {
     closeMenuOffcanvas() {
       this.$emit('close-menuOffcanvas')
     },
     goLink(path) {
       this.$router.push(path)
+    },
+    showToast() {
+      this.toastMessage = true
+      setTimeout(() => {
+        this.toastMessage = false
+      }, 2000)
     }
   }
 }
@@ -179,5 +194,19 @@ export default {
 }
 .offcanvas-footer .menu button{
   @apply font-extrabold text-[20px] leading-[24px] text-[#2c2c2c];
+}
+.toast{
+  @apply absolute bottom-[5%] left-[50%] translate-x-[-50%] font-normal text-[12px] text-[#fff] bg-[rgba(90,90,90,0.9)] p-[8px_12px] rounded-[24px];
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 </style>
