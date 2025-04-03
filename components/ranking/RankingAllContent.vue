@@ -4,8 +4,8 @@
       <table>
         <colgroup>
           <col width="48">
-          <col width="79">
           <col width="*">
+          <col width="84">
           <col width="84">
           <col width="80">
         </colgroup>
@@ -21,7 +21,7 @@
         <tbody>
           <tr v-for="(player, idx) in rankingData" :key="idx">
             <td>{{ player.rank }}</td>
-            <td>{{ player.name }}</td>
+            <td class="text-truncate">{{ player.name }}</td>
             <td>{{ player.gamePoints }}</td>
             <td>{{ player.classMaster }}</td>
             <td>{{ player.episodePoints }}</td>
@@ -51,13 +51,13 @@ export default {
 
 <style scoped>
 .investInfo-table table{
-  @apply w-full;
+  @apply w-full table-fixed;
 }
 .investInfo-table table thead tr th{
   @apply h-[72px] text-center bg-[#F0F4FA] border-b border-r border-[#DBE3EE] last:border-r-0 font-medium text-[14px] leading-[16px] text-[#2c2c2c];
 }
 .investInfo-table table tbody tr td{
-  @apply h-[32px] text-center border-r border-[#DBE3EE] last:border-r-0 font-medium text-[12px] leading-[14px] text-[#2c2c2c];
+  @apply h-[32px] text-center border-r border-[#DBE3EE] last:border-r-0 font-medium text-[12px] leading-[14px] text-[#2c2c2c] px-[5px];
 }
 .investInfo-table table tbody tr td.up{
   @apply text-[#FF4646];

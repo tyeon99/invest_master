@@ -102,8 +102,8 @@
               <col width="84">
               <col width="56">
               <col width="*">
-              <col width="84">
-              <col width="59">
+              <col width="79">
+              <col width="64">
             </colgroup>
             <thead>
               <tr>
@@ -118,14 +118,14 @@
               <tr>
                 <td>2024.02.23</td>
                 <td class="up">매수</td>
-                <td>사원시스템즈</td>
+                <td class="text-truncate">사원시스템즈</td>
                 <td>44,000</td>
                 <td class="up">+12.3%</td>
               </tr>
               <tr>
                 <td>2024.02.23</td>
                 <td class="down">매도</td>
-                <td>사원시스템즈</td>
+                <td class="text-truncate">사원시스템즈</td>
                 <td>44,000</td>
                 <td class="down">-12.3%</td>
               </tr>
@@ -253,13 +253,13 @@ export default {
   @apply text-left pl-[16px];
 }
 .investInfo-table table{
-  @apply w-full;
+  @apply w-full table-fixed;
 }
 .investInfo-table table thead tr th{
   @apply h-[42px] text-center bg-[#F0F4FA] border-b border-r border-[#DBE3EE] last:border-r-0 font-medium text-[14px] leading-[16px] text-[#2c2c2c];
 }
 .investInfo-table table tbody tr td{
-  @apply h-[36px] text-center border-r border-[#DBE3EE] last:border-r-0 font-medium text-[12px] leading-[14px] text-[#2c2c2c];
+  @apply h-[36px] text-center border-r border-[#DBE3EE] last:border-r-0 font-medium text-[12px] leading-[14px] text-[#2c2c2c] px-[5px];
 }
 .investInfo-table table tbody tr td.up{
   @apply text-[#FF4646];
