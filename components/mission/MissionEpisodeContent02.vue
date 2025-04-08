@@ -20,7 +20,14 @@
     </div>
 
     <div class="item-box">
-      <div v-if="selectedItem.name === '티플랙스'"></div>
+      <div v-if="selectedItem.name === '티플랙스'">
+        <div class="fullBtnGroup">
+          <button>
+            <img width="24" src="~/assets/img/mission/pdf-icon.png" alt="PDF 아이콘">
+            <span>PDF 보기(전체)</span>
+          </button>
+        </div>
+      </div>
       <div v-if="selectedItem.name === '대주전자재료'"></div>
     </div>
   </div>
@@ -91,5 +98,14 @@ export default {
 }
 .item-box{
   @apply pt-[24px];
+}
+.fullBtnGroup{
+  @apply w-full px-[18px] flex justify-start items-center gap-[12px] mb-[23px];
+}
+.fullBtnGroup button{
+  @apply w-full h-[42px] flex justify-center items-center gap-[12px] last:gap-[8px] border border-[#2C2C2C] rounded-[8px];
+}
+.fullBtnGroup button span{
+  @apply font-extrabold text-[14px] leading-[14px] text-[#2c2c2c];
 }
 </style>

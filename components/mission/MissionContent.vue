@@ -68,7 +68,7 @@ export default {
   @apply w-full px-[18px] flex justify-start items-center gap-[12px] mb-[23px];
 }
 .fullBtnGroup button{
-  @apply w-[50%] h-[42px] flex justify-center items-center gap-[12px] last:gap-[8px] border border-[#2C2C2C] rounded-[8px];
+  @apply w-full h-[42px] flex justify-center items-center gap-[12px] last:gap-[8px] border border-[#2C2C2C] rounded-[8px];
 }
 .fullBtnGroup button span{
   @apply font-extrabold text-[14px] leading-[14px] text-[#2c2c2c];

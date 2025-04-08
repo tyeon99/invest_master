@@ -6,7 +6,7 @@
         <img width="10" src="~/assets/img/main/main_notice-icon.png" alt="공지사항">
         <em>공지사항</em>
       </span>
-      <p>5월 신규 미션 추가 안내</p>
+      <p>엑티브시니어를 위한 투자교육 게임 오픈 안내</p>
     </button>
     <MainNoticeOffcanvas
       v-if="isNoticeOffcanvasOpen"
