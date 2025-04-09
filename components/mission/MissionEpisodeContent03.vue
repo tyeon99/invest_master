@@ -26,8 +26,12 @@
       <!-- <button class="cancel">매수취소</button> -->
       <button @click="openConfirmedOffcanvas">매매완료</button>
     </div>
-    <div class="missionEpisodeContent__chart">
-      <img src="~/assets/img/mission/chart-img.png" alt="차트이미지">
+    <div ref="chatImg" class="missionEpisodeContent__chart">
+      <img
+        src="https://files.thinkpool.com/masterclass/%EC%B0%A8%ED%8A%B8_02_01_01_SK%ED%95%98%EC%9D%B4%EB%8B%89%EC%8A%A401.png"
+        alt="차트이미지"
+        @load="scrollToRight"
+      >
     </div>
     <!-- 매수 주문 -->
     <MissionBuyOffcanvas 
@@ -116,10 +120,10 @@ export default {
       }
     },
     scrollToRight() {
-      const chartLeft = this.$refs.chartLeft
+      const chatImg = this.$refs.chatImg
 
-      if (chartLeft) {
-        chartLeft.scrollLeft = chartLeft.scrollWidth
+      if (chatImg) {
+        chatImg.scrollLeft = chatImg.scrollWidth
       }
     },
     openBuyOffcanvas() {
@@ -226,9 +230,9 @@ export default {
   @apply border-none bg-[#3C4552] text-[#fff];
 }
 .missionEpisodeContent__chart{
-  @apply w-full;
+  @apply w-full overflow-x-auto;
 }
 .missionEpisodeContent__chart img{
-  @apply w-full;
+  @apply h-[400px] max-w-fit;
 }
 </style>
